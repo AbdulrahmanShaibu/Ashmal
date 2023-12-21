@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filterable List Example</title>
+    <style>
+        /* Basic CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #filterInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+            display: none; /* Initially hide all list items */
+            cursor: pointer;
+        }
+        .selected {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Filterable List Example</h1>
+<input type="text" id="filterInput" placeholder="Search for items..." />
+<ul id="itemList">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Cherry</li>
+    <li>Grapes</li>
+    <li>Lemon</li>
+    <li>Orange</li>
+    <li>Peach</li>
+    <li>Pear</li>
+</ul>
+<button id="actionButton" disabled>Action</button>
+
+<script>
+    // Get references to the filter input, item list, and action button
+    const filterInput = document.getElementById('filterInput');
+    const itemList = document.getElementById('itemList').getElementsByTagName('li');
+    const actionButton = document.getElementById('actionButton');
+
+    // Add input event listener to filter the list
+    filterInput.addEventListener('input', function() {
+        const query = filterInput.value.toLowerCase();
+        for (const item of itemList) {
+            const itemName = item.textContent.toLowerCase();
+            if (itemName.includes(query)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+
+    // Add click event listener to list items
+    for (const item of itemList) {
+        item.addEventListener('click', function() {
+            filterInput.value = item.textContent;
+            item.classList.toggle('selected');
+            actionButton.disabled = false;
+        });
+    }
+
+    // Add click event listener to action button
+    actionButton.addEventListener('click', function() {
+        const selectedItem = document.querySelector('.selected');
+        if (selectedItem) {
+            alert(`You selected: ${selectedItem.textContent}`);
+        }
+    });
+</script>
+
+</body>
+</html>

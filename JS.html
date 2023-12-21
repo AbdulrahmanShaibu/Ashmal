@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <button onclick="Add()">click</button>
+    <button onclick="Operate()">Click</button>
+    <button onclick="Count()">Count</button><br>
+    <button onclick="add()">Addition</button><br>
+    <button onclick="Text()">Touch</button><br>
+</head>
+<body>
+
+    <!-- THIRD DAY -->
+
+    <label for="">First Number</label><br>
+    <input type="number"id="data1"><br>
+    <label for="">Second Number</label><br>
+    <input type="number" id="data2"><br><br><br>
+    <p id="result"></p>
+    <p id="sms"></p>
+    <p id="select">I am changing</p>
+
+    <script>
+
+        var number1=document.getElementById('data1');
+        var number2=document.getElementById('data2');
+           var n1=parseInt(number1).value;
+           var n2=parseInt(number2).value;
+
+        function add(){
+           const summation=n1+n2;
+           const result=document.getElementById('result')
+           console.log(summation)
+           result.innerHTML="Summation:"+" "+summation;
+        }
+
+        function Text(){
+            const message=document.getElementById('sms');
+        // message.innerHTML="hello there";
+        // message.style.color='red';
+        // message.style.backgroundColor='green'
+        // message.style.fontSize='60px'
+        // message.style.textAlign='center'
+        // message.textContent="hello again"
+
+        const List=["red","blue","green","orange"]
+        const Find=document.getElementById('select')
+        const RandomColors=Math.floor(Math.random())*List.length;
+        Find.style.color=List[RandomColors]
+        }
+        setInterval(Text,3000)   
+    </script>
+
+    <script>
+
+        //SECOND DAY part 01
+        
+        const password=prompt("Enter the password")
+        const newPaasword=prompt("confirm password")
+
+        if(password=="12345678"){
+            alert("Welcome to the sysstem")
+        }else if(password!=newPaasword){
+            alert("Access denied for this password:"+newPaasword+" "+"Please try again")
+        }else{
+            alert("Password is required")
+        }
+
+        const array=["Ali","Xainab","Bakari","Hamid"];
+        console.log("data:"+array[0])
+        console.log("data:"+array[1])
+        console.log("data:"+array[2])
+        console.log("data:"+array[3])
+          
+        const test=  array.pop();//remove last element
+        console.log(test)
+
+        const test1=array.push("Now");
+        console.log(test1+":is pushed ")
+
+        const test4=array.sort();
+        console.log(test4)
+
+        const test2=array.reverse();
+        console.log(test2);
+
+        const test3=delete array[0];
+        console.log(test3)
+         
+        const person={
+            name:"Haji",
+            age:34,
+            status:"Present",
+
+            student:{
+            level:"diploma",
+            date:"Monday"
+            },
+
+            courses:[
+                
+                "Math",
+                "Science",
+                "History"
+            ]
+
+        }
+        console.log(person.name)
+        console.log(person.student.level)
+        console.log(person.courses)
+
+        for(let i=0; i<=5; i++){
+            console.log(i)
+        }
+
+        const choice=prompt("Enter the choice")
+        switch(choice){
+            case 1:
+            console.log("Today is monday")
+            break;
+            case 2:
+            console.log("Today is tuesday")
+            break;
+            case 3:
+            console.log("Today is wednesday")
+            break;
+            case 4:
+            console.log("Today is thursaday")
+            break;
+            default:
+                console.log("wrong choice")
+        }
+//second day part 02
+        function Add(number){
+          const n1=2;
+          const n2=10;
+          console.log(n1+n2)
+        }
+
+         var n3=15
+         var n4=10
+         var sum=n3+n4
+        function Operate(variable){
+            console.log(sum)
+        }
+
+        var count=0
+        function Count(number){
+         if(count<=10){
+            alert(count +" "+"is counted")
+            count++
+         }else if(count>10){
+            count=0
+         }else{
+            alert("Nothing worked")
+         }
+        }
+    
+        
+    </script>
+
+</body>
+</html>
